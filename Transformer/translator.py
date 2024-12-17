@@ -17,11 +17,11 @@ def text_to_embeddings(text, embedding_dict):
     for word in words:
         if word in embedding_dict:
             found_embeddings.append(embedding_dict[word])
-            
+
         else: 
             print((f"a palavra '{word}' não está na lista das possíveis palavras"))
             raise Exception(f"Word not in dict.")
-            
+
     
     return np.array(found_embeddings)
 

@@ -14,6 +14,7 @@ print(list_of_words)
 
 inpt = input("Digite sua frase de entrada: ")
 inpt_embeddings = tl.text_to_embeddings(inpt, embeddings_dict)
+
 inpt_seq = inpt_embeddings.shape[0]
 print(f'a quantidade de palavras na frase é {inpt_seq}')
 if inpt_seq > 16:
@@ -28,7 +29,9 @@ A = inpt_embeddings_padding + positional_encoding
 
 A = tl.zero_padding(A,inpt_seq)
 print(f'Dimensões A: {A.shape}')
+
 # ------ Aqui nós entramos no mecanismo de atenção ------------------------------
+
 Wq1 = np.load('attention_head1_Wq.npy')
 Wk1 = np.load('attention_head1_Wk.npy')
 Wv1 = np.load('attention_head1_Wv.npy')
